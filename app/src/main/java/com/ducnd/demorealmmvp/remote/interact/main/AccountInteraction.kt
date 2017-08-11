@@ -8,7 +8,6 @@ import com.ducnd.demorealmmvp.remote.model.SongSearchResult
 import com.ducnd.demorealmmvp.remote.model.User
 import com.ducnd.realmmvp.remote.interact.main.BaseInteract
 import com.ducnd.realmmvp.utils.Action1Obtain
-import com.google.gson.Gson
 
 import io.reactivex.Observable
 import io.realm.RealmList
@@ -28,7 +27,7 @@ class AccountInteraction(connector: IApiConnector, store: StoreManager) : BaseIn
     }
 
     override fun getSongSearchResultAtFreedThread(nameSong: String): SongSearchResult? {
-        return mStore.findItemAtFreeThread(SongSearchResult::class.java, SongSearchResult.NAME_SERCH, nameSong, object : Action1Obtain<SongSearchResult> {
+        return mStore.findItemAtFreeThread(SongSearchResult::class.java, SongSearchResult.NAME_SEARCH, nameSong, object : Action1Obtain<SongSearchResult> {
             override fun call(data: SongSearchResult): SongSearchResult {
                 val song: SongSearchResult = SongSearchResult()
                 song.id = data.id
@@ -43,7 +42,7 @@ class AccountInteraction(connector: IApiConnector, store: StoreManager) : BaseIn
                         item.siteId = it.siteId
                         item.urlJunDownload = it.urlJunDownload
                         item.avatar = it.avatar
-                        song!!.itemSongs!!.add(item)
+                        song.itemSongs!!.add(item)
                     }
                 }
 

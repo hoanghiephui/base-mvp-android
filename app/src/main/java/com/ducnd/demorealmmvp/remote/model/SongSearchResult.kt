@@ -1,6 +1,7 @@
 package com.ducnd.demorealmmvp.remote.model
 
-import android.util.Log
+import com.google.gson.JsonObject
+import com.google.gson.JsonSerializer
 import com.google.gson.annotations.SerializedName
 import io.realm.RealmList
 import io.realm.RealmObject
@@ -28,11 +29,11 @@ open class SongSearchResult : RealmObject() {
             json.put("Id", itemSongs.id)
             json.put("nameSearch", itemSongs.nameSearch)
             val content: String = json.toString()
-            Log.d("SongSearchResult", "content: " + content)
             return content
         }
 
-        val NAME_SERCH: String = "nameSearch"
+
+        val NAME_SEARCH: String = "nameSearch"
     }
 
     @SerializedName("Id")

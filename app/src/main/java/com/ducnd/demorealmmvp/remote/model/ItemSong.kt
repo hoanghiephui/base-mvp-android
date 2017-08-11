@@ -5,6 +5,10 @@ import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 import org.json.JSONObject
+import java.lang.reflect.Type
+import android.R.attr.src
+import com.google.gson.*
+
 
 /**
  * Created by ducnd on 8/11/17.
