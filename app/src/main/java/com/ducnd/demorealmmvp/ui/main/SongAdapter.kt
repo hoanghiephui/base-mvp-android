@@ -9,6 +9,8 @@ import android.widget.TextView
 
 import com.ducnd.demorealmmvp.R
 import com.ducnd.demorealmmvp.remote.model.ItemSong
+import com.ducnd.realmmvp.ui.customview.GlideApp
+import com.ducnd.realmmvp.ui.customview.ImageViewLocal
 import com.squareup.picasso.Picasso
 
 /**
@@ -28,18 +30,17 @@ class SongAdapter(intf: ISongAdapter) : RecyclerView.Adapter<SongAdapter.Compani
         holder.tvName.setText(item.title)
         holder.tvArtist.setText(item.artist)
         if (item.avatar != null && !item.avatar.equals("")) {
-            Picasso.with(holder.itemView.context)
-                    .load(item.avatar)
-                    .placeholder(R.drawable.zing)
-                    .error(R.drawable.zing)
-                    .into(holder.ivImg)
-        }else {
-            Picasso.with(holder.itemView.context)
+            mInterf.loadImage(item.avatar!!, holder.ivImg)
+        } else {
+            GlideApp.with(holder.ivImg)
                     .load(R.drawable.zing)
                     .placeholder(R.drawable.zing)
                     .error(R.drawable.zing)
+                    .centerCrop()
+                    .override(500)
                     .into(holder.ivImg)
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -50,12 +51,13 @@ class SongAdapter(intf: ISongAdapter) : RecyclerView.Adapter<SongAdapter.Compani
         class ViewHolderSong(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val tvName: TextView = itemView.findViewById<View>(R.id.tv_name) as TextView
             val tvArtist: TextView = itemView.findViewById<View>(R.id.tv_artis) as TextView
-            val ivImg: ImageView = itemView.findViewById<View>(R.id.iv_img) as ImageView
+            val ivImg: ImageViewLocal = itemView.findViewById<View>(R.id.iv_img) as ImageViewLocal
         }
     }
 
     interface ISongAdapter {
         fun getCount(): Int
         fun getData(position: Int): ItemSong
+        fun loadImage(link: String, ivImg: ImageViewLocal)
     }
 }

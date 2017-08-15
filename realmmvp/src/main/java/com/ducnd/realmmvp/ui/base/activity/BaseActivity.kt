@@ -18,6 +18,7 @@ abstract class BaseActivity : AppCompatActivity(), ViewActivity {
     protected var mProgress: ProgressBar? = null
     protected var mIsDestroyView = true
     private var mViewRoot: View? = null
+    protected var mIsStarted: Boolean = false;
 
     final override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,6 +119,26 @@ abstract class BaseActivity : AppCompatActivity(), ViewActivity {
     }
 
     override fun onPauseControl() {
+
+    }
+
+    override final fun onStart() {
+        super.onStart()
+        mIsStarted = true
+        onStartControl()
+    }
+
+    override fun onStartControl() {
+
+    }
+
+    override final fun onStop() {
+        mIsStarted = false
+        onStopControl()
+        super.onStop()
+    }
+
+    override fun onStopControl() {
 
     }
 

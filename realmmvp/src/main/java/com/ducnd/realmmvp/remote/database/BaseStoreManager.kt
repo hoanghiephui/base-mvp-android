@@ -13,7 +13,7 @@ import io.realm.*
 
 abstract class BaseStoreManager(context: Context, nameSchema: String, versionSchema: Long) : IBaseStoreManager {
     protected val mRealm: Realm
-
+    protected val mPackageName: String
 
     init {
         Realm.init(context)
@@ -24,6 +24,7 @@ abstract class BaseStoreManager(context: Context, nameSchema: String, versionSch
                 .build()
         Realm.setDefaultConfiguration(realmConfiguration)
         mRealm = Realm.getDefaultInstance()
+        mPackageName = context.packageName
 
     }
 
@@ -265,6 +266,7 @@ abstract class BaseStoreManager(context: Context, nameSchema: String, versionSch
             return t2
         }
     }
+
 
     /**
      * close realm on main thread

@@ -1,5 +1,6 @@
 package com.ducnd.demorealmmvp.remote.interact.main
 
+import android.graphics.Bitmap
 import com.ducnd.demorealmmvp.remote.database.StoreManager
 import com.ducnd.demorealmmvp.remote.interact.interf.IAccountInteraction
 import com.ducnd.demorealmmvp.remote.interact.interf.IApiConnector
@@ -10,7 +11,9 @@ import com.ducnd.realmmvp.remote.interact.main.BaseInteract
 import com.ducnd.realmmvp.utils.Action1Obtain
 
 import io.reactivex.Observable
+import io.reactivex.disposables.Disposable
 import io.realm.RealmList
+import io.realm.RealmObject
 
 /**
  * Created by ducnd on 8/10/17.
@@ -31,11 +34,11 @@ class AccountInteraction(connector: IApiConnector, store: StoreManager) : BaseIn
             override fun call(data: SongSearchResult): SongSearchResult {
                 val song: SongSearchResult = SongSearchResult()
                 song.id = data.id
-                song.nameSearch =data.nameSearch
+                song.nameSearch = data.nameSearch
                 song.itemSongs = RealmList<ItemSong>()
-                if ( data.itemSongs != null ) {
+                if (data.itemSongs != null) {
                     data.itemSongs!!.forEach {
-                        val item:ItemSong = ItemSong()
+                        val item: ItemSong = ItemSong()
                         item.artist = it.artist
                         item.id = it.id
                         item.title = it.title
@@ -45,9 +48,16 @@ class AccountInteraction(connector: IApiConnector, store: StoreManager) : BaseIn
                         song.itemSongs!!.add(item)
                     }
                 }
-
                 return song
             }
         })
+    }
+
+    override fun saveMediaInfoAtFreeThread(bitmap: Bitmap, localFolderMedia: String, linkImage: String): Disposable {
+        return mStore.saveMediaInfoAtFreeThread(bitmap, localFolderMedia, linkImage)
+    }
+
+    override fun <T : RealmObject> findItemAtMainThread(clazz: Class<T>, fieldName: String, valueCondition: String): T? {
+        return mStore.findItemAtMainThread(clazz, fieldName, valueCondition)
     }
 }

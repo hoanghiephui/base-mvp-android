@@ -1,7 +1,5 @@
 package com.ducnd.demorealmmvp.remote.model;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by ducnd on 8/10/17.

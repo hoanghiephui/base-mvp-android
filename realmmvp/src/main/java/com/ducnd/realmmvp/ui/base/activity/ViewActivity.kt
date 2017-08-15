@@ -16,5 +16,7 @@ interface ViewActivity : BaseViewUI {
     fun findFragmentByTag(tag: String): BaseFragment
     fun setViewRoot(viewRoot: View)
     fun onBackParent()
+    fun onStartControl()
+    fun onStopControl()
 
 }

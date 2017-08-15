@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
 apply plugin: 'realm-android'
 
 android {
@@ -57,6 +58,9 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     implementation 'com.android.support:design:26.0.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.0.0'
+    kapt 'com.github.bumptech.glide:compiler:4.0.0'
 }
 repositories {
     mavenCentral()
