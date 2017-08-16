@@ -63,6 +63,8 @@ abstract class BaseFirebaseMessagingService : FirebaseMessagingService() {
         builderNotifaction.setSmallIcon(messagePush.resSmallIcon)
         builderNotifaction.setContentTitle(messagePush.title)
         builderNotifaction.setContentText(messagePush.content)
+        builderNotifaction.setStyle(NotificationCompat.BigTextStyle()
+                .bigText(messagePush.content))
         val resultIntent = Intent()
         resultIntent.setClass(this, messagePush.clazzOpenNotitication)
         resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP)
