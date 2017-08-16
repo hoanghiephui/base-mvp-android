@@ -5,7 +5,6 @@ import com.ducnd.demorealmmvp.ui.main.MainActivity
 import com.ducnd.demorealmmvp.R
 import com.ducnd.realmmvp.pushnotification.BaseFirebaseMessagingService
 import com.ducnd.realmmvp.pushnotification.MessagePush
-import com.ducnd.realmmvp.utils.Constants
 import com.google.firebase.messaging.RemoteMessage
 
 
