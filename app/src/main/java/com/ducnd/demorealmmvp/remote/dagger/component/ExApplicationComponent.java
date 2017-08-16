@@ -6,7 +6,7 @@ import com.ducnd.demorealmmvp.common.ExApplication;
 import com.ducnd.demorealmmvp.remote.dagger.anomation.AccountContext;
 import com.ducnd.demorealmmvp.remote.dagger.anomation.ApplicationContext;
 import com.ducnd.demorealmmvp.remote.dagger.module.ExApplicationModule;
-import com.ducnd.demorealmmvp.remote.interact.main.AccountInteraction;
+import com.ducnd.demorealmmvp.remote.interact.interf.IAccountInteraction;
 
 import javax.inject.Singleton;
 
@@ -24,5 +24,5 @@ public interface ExApplicationComponent {
     Context context();
 
     @AccountContext
-    AccountInteraction getAccountCount();
+    IAccountInteraction getAccountCount();
 }
