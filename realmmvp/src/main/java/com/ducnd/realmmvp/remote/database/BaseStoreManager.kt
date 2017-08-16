@@ -2,8 +2,8 @@ package com.ducnd.realmmvp.remote.database
 
 import android.content.Context
 import android.support.annotation.MainThread
-import com.ducnd.realmmvp.utils.Action1Obtain
-import com.ducnd.realmmvp.utils.ActionExtractAttribute
+import com.ducnd.realmmvp.utils.action.Action1Obtain
+import com.ducnd.realmmvp.utils.action.ActionExtractAttribute
 import io.realm.*
 
 

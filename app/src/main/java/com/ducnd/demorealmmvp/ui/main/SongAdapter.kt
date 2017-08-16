@@ -4,14 +4,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 
 import com.ducnd.demorealmmvp.R
 import com.ducnd.demorealmmvp.remote.model.ItemSong
 import com.ducnd.realmmvp.ui.customview.GlideApp
 import com.ducnd.realmmvp.ui.customview.ImageViewLocal
-import com.squareup.picasso.Picasso
 
 /**
  * Created by ducnd on 8/11/17.

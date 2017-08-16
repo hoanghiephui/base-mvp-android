@@ -1,9 +1,8 @@
 package com.ducnd.realmmvp.remote.interact.main
 
-import android.graphics.Bitmap
 import com.ducnd.realmmvp.remote.interact.source.IBasePresenter
 import com.ducnd.realmmvp.ui.base.BaseViewUI
-import com.ducnd.realmmvp.utils.Action1
+import com.ducnd.realmmvp.utils.action.Action1
 import com.ducnd.realmmvp.utils.Constants
 import io.reactivex.Observable
 

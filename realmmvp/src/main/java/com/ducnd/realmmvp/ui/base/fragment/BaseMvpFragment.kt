@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.ducnd.realmmvp.remote.interact.source.IBasePresenter
 import java.util.*
-import com.ducnd.realmmvp.utils.Action1
+import com.ducnd.realmmvp.utils.action.Action1
 import com.ducnd.realmmvp.utils.Constants
 
 

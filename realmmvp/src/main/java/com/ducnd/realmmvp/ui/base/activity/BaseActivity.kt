@@ -2,18 +2,20 @@ package com.ducnd.realmmvp.ui.base.activity
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.ducnd.realmmvp.ui.base.fragment.BaseFragment
+import com.ducnd.realmmvp.utils.permission.PermissionGrantUtils
 
 /**
  * Created by ducnd on 8/10/17.
  */
 
-abstract class BaseActivity : AppCompatActivity(), ViewActivity {
+abstract class BaseActivity : AppCompatActivity(), ViewActivity, ActivityCompat.OnRequestPermissionsResultCallback{
     protected var mIsClearMemoryActivity: Boolean = false
     protected var mProgress: ProgressBar? = null
     protected var mIsDestroyView = true
@@ -153,4 +155,9 @@ abstract class BaseActivity : AppCompatActivity(), ViewActivity {
 
     override val isDestroyView: Boolean
         get() = mIsDestroyView
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        PermissionGrantUtils.checkPermissionFinish(this, permissions, grantResults)
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
 }

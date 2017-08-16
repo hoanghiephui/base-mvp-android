@@ -1,7 +1,7 @@
 package com.ducnd.realmmvp.remote.database
 
-import com.ducnd.realmmvp.utils.Action1Obtain
-import com.ducnd.realmmvp.utils.ActionExtractAttribute
+import com.ducnd.realmmvp.utils.action.Action1Obtain
+import com.ducnd.realmmvp.utils.action.ActionExtractAttribute
 import io.realm.Realm
 import io.realm.RealmObject
 import io.realm.RealmResults

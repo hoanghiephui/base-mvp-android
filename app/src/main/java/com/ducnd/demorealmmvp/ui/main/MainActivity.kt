@@ -13,7 +13,7 @@ import com.ducnd.demorealmmvp.remote.model.ItemSong
 import com.ducnd.demorealmmvp.remote.model.SongSearchResult
 import com.ducnd.demorealmmvp.ui.base.activity.BaseMvpActivityM
 import com.ducnd.realmmvp.ui.customview.ImageViewLocal
-import com.ducnd.realmmvp.utils.Action1
+import com.ducnd.realmmvp.utils.action.Action1
 import io.reactivex.disposables.Disposable
 import io.realm.RealmList
 

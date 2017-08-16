@@ -8,7 +8,7 @@ import com.ducnd.demorealmmvp.remote.model.ItemSong
 import com.ducnd.demorealmmvp.remote.model.SongSearchResult
 import com.ducnd.demorealmmvp.remote.model.User
 import com.ducnd.realmmvp.remote.interact.main.BaseInteract
-import com.ducnd.realmmvp.utils.Action1Obtain
+import com.ducnd.realmmvp.utils.action.Action1Obtain
 
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable

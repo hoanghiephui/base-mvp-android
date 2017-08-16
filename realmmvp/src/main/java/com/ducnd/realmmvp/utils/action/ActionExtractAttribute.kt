@@ -1,4 +1,4 @@
-package com.ducnd.realmmvp.utils
+package com.ducnd.realmmvp.utils.action
 
 /**
  * Created by ducnd on 8/10/17.
