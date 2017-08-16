@@ -1,6 +1,5 @@
 package com.ducnd.realmmvp.pushnotification
 
-import android.app.Activity
 import android.app.Notification
 import android.content.Context
 import android.support.v4.app.NotificationCompat
