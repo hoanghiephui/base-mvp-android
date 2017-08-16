@@ -32,7 +32,7 @@ class AccountInteraction(connector: IApiConnector, store: StoreManager) : BaseIn
     override fun getSongSearchResultAtFreedThread(nameSong: String): SongSearchResult? {
         return mStore.findItemAtFreeThread(SongSearchResult::class.java, SongSearchResult.NAME_SEARCH, nameSong, object : Action1Obtain<SongSearchResult> {
             override fun call(data: SongSearchResult): SongSearchResult {
-                val song: SongSearchResult = SongSearchResult()
+                val song = SongSearchResult()
                 song.id = data.id
                 song.nameSearch = data.nameSearch
                 song.itemSongs = RealmList<ItemSong>()
@@ -59,5 +59,9 @@ class AccountInteraction(connector: IApiConnector, store: StoreManager) : BaseIn
 
     override fun <T : RealmObject> findItemAtMainThread(clazz: Class<T>, fieldName: String, valueCondition: String): T? {
         return mStore.findItemAtMainThread(clazz, fieldName, valueCondition)
+    }
+
+    override fun optimizeStore() {
+        mStore.optimizeStore()
     }
 }

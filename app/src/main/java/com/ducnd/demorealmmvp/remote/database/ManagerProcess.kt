@@ -10,4 +10,5 @@ import java.util.concurrent.Executors
  */
 internal object ManagerProcess {
     val schedulerLoadMedia: Scheduler = Schedulers.from(Executors.newFixedThreadPool(10))
+    val schedulerInteractServer: Scheduler = Schedulers.from(Executors.newFixedThreadPool(4))
 }

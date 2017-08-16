@@ -25,7 +25,7 @@ abstract class MVPApplication<AppComponent> : MultiDexApplication(), Application
     }
 
     protected var mComponent: AppComponent? = null
-    protected lateinit var mActivities: MutableList<Activity>
+    protected lateinit var mActivitiesStarted: MutableList<Activity>
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
@@ -49,7 +49,7 @@ abstract class MVPApplication<AppComponent> : MultiDexApplication(), Application
         heightScreen = displayMetrics.heightPixels
         density = displayMetrics.density
 
-        mActivities = mutableListOf()
+        mActivitiesStarted = mutableListOf()
         registerActivityLifecycleCallbacks(this)
     }
 
@@ -66,27 +66,31 @@ abstract class MVPApplication<AppComponent> : MultiDexApplication(), Application
     }
 
     override fun onActivityStarted(act: Activity?) {
-
+        if (act != null) {
+            mActivitiesStarted.add(act)
+        }
     }
 
     override fun onActivityDestroyed(act: Activity?) {
-        if (act != null) {
-            mActivities.remove(act)
-        }
+
     }
 
     override fun onActivitySaveInstanceState(act: Activity?, bundle: Bundle?) {
-
     }
 
     override fun onActivityStopped(act: Activity?) {
-
+        if (act != null) {
+            mActivitiesStarted.remove(act)
+            if (mActivitiesStarted.size == 0) {
+                actionStopAllActivity()
+            }
+        }
     }
 
     override fun onActivityCreated(act: Activity?, bundle: Bundle?) {
-        if (act != null) {
-            mActivities.add(act)
-        }
+
     }
+
+    abstract fun actionStopAllActivity()
 
 }

@@ -14,4 +14,5 @@ interface IAccountInteraction : IBaseInteraction<User> {
     fun getListSong(name: String): Observable<MutableList<ItemSong>>
     fun saveSongSearchResult(songSearchResult: SongSearchResult)
     fun getSongSearchResultAtFreedThread(nameSong: String): SongSearchResult?
+    fun optimizeStore()
 }

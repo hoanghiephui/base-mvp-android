@@ -19,6 +19,7 @@ open class MediaInfo : RealmObject() {
         val LINK_IMAGE = "linkImage"
         val FOLDER = "folderName"
         val PATH_LOCAL = "pathLocal"
+        val LAST_MOTIFIER_MEDIA = "lastModifierMedia"
     }
 
     @PrimaryKey

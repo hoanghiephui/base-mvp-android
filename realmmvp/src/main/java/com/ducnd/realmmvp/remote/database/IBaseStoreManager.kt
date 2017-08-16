@@ -1,9 +1,7 @@
 package com.ducnd.realmmvp.remote.database
 
-import android.graphics.Bitmap
 import com.ducnd.realmmvp.utils.Action1Obtain
 import com.ducnd.realmmvp.utils.ActionExtractAttribute
-import io.reactivex.disposables.Disposable
 import io.realm.Realm
 import io.realm.RealmObject
 import io.realm.RealmResults
@@ -35,6 +33,8 @@ interface IBaseStoreManager {
     fun <T : RealmObject> findItemAtMainThread(clazz: Class<T>, fieldName: String, valueCondition: String): T?
     fun <T : RealmObject> findItemAtMainThread(clazz: Class<T>, fieldName: String, valueCondition: String, action1Obtain: Action1Obtain<T>): T?
     fun <T : RealmObject> findItemAtFreeThread(clazz: Class<T>, fieldName: String, valueCondition: String, action1Obtain: Action1Obtain<T>): T?
+
+    fun optimizeStore()
 
     fun closeRealm()
 }

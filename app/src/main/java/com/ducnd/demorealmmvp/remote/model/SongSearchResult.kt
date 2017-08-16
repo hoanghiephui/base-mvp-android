@@ -5,10 +5,12 @@ import com.google.gson.JsonSerializer
 import com.google.gson.annotations.SerializedName
 import io.realm.RealmList
 import io.realm.RealmObject
+import io.realm.annotations.Index
 import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.*
 
 /**
  * Created by ducnd on 8/11/17.
@@ -34,6 +36,7 @@ open class SongSearchResult : RealmObject() {
 
 
         val NAME_SEARCH: String = "nameSearch"
+        val DATE_CREATE: String = "dateCreate"
     }
 
     @SerializedName("Id")
@@ -45,4 +48,7 @@ open class SongSearchResult : RealmObject() {
 
     @SerializedName("itemSongs")
     var itemSongs: RealmList<ItemSong>? = null
+
+    @Index
+    var dateCreate: Date? = null
 }

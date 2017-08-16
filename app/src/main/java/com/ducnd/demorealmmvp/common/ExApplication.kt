@@ -16,4 +16,7 @@ class ExApplication : MVPApplication<ExApplicationComponent>() {
     }
 
 
+    override fun actionStopAllActivity() {
+        mComponent!!.accountCount.optimizeStore()
+    }
 }

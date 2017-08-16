@@ -1,5 +1,6 @@
 package com.ducnd.demorealmmvp.remote.interact.main
 
+import com.ducnd.demorealmmvp.remote.database.ManagerProcess
 import com.ducnd.demorealmmvp.remote.interact.interf.IApiConnector
 import com.ducnd.demorealmmvp.remote.interact.source.ResApi
 import com.ducnd.demorealmmvp.remote.model.ItemSong
@@ -16,7 +17,7 @@ class ApiConnector(endpoint: String, mClazz: Class<ResApi>) : BaseApiConnector<R
 
     override fun getListSong(name: String): Observable<MutableList<ItemSong>> {
         return mApi.getListSong(name, "mp3.zing.vn", "sdfs")
-                .subscribeOn(Schedulers.newThread())
+                .subscribeOn(ManagerProcess.schedulerInteractServer)
                 .observeOn(AndroidSchedulers.mainThread())
 
     }
