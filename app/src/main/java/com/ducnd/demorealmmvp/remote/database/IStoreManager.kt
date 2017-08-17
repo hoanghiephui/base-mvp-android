@@ -8,6 +8,6 @@ import io.reactivex.disposables.Disposable
  * Created by ducnd on 8/11/17.
  */
 
-interface IStoreManager : IBaseStoreManager{
+interface IStoreManager : IBaseStoreManager {
     fun saveMediaInfoAtFreeThread(bitmap: Bitmap, localFolderMedia: String, linkImage: String): Disposable
 }

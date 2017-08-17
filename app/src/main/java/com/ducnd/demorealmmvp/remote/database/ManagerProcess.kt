@@ -2,7 +2,6 @@ package com.ducnd.demorealmmvp.remote.database
 
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 /**

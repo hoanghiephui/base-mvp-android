@@ -10,7 +10,6 @@ interface Constants {
         val DURATION_ANIMATION = 400
 
 
-
         val KEY_ID = "KEY_ID"
     }
 }

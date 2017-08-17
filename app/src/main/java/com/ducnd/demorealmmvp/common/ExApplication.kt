@@ -1,6 +1,5 @@
 package com.ducnd.demorealmmvp.common
 
-import com.ducnd.demorealmmvp.remote.dagger.component.DaggerExApplicationComponent
 import com.ducnd.demorealmmvp.remote.dagger.component.ExApplicationComponent
 import com.ducnd.demorealmmvp.remote.dagger.module.ExApplicationModule
 import com.ducnd.realmmvp.MVPApplication

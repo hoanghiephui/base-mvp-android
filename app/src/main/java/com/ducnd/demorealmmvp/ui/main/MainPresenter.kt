@@ -22,6 +22,6 @@ class MainPresenter(view: IMain.View, accountInteraction: IAccountInteraction) :
     }
 
     override fun saveLocalSongResultSearch(songSearchResult: SongSearchResult) {
-        mAccountInteraction.saveSongSearchResult(songSearchResult )
+        mAccountInteraction.saveSongSearchResult(songSearchResult)
     }
 }

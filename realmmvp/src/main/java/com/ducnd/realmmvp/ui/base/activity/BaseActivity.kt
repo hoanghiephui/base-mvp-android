@@ -15,7 +15,7 @@ import com.ducnd.realmmvp.utils.permission.PermissionGrantUtils
  * Created by ducnd on 8/10/17.
  */
 
-abstract class BaseActivity : AppCompatActivity(), ViewActivity, ActivityCompat.OnRequestPermissionsResultCallback{
+abstract class BaseActivity : AppCompatActivity(), ViewActivity, ActivityCompat.OnRequestPermissionsResultCallback {
     protected var mIsClearMemoryActivity: Boolean = false
     protected var mProgress: ProgressBar? = null
     protected var mIsDestroyView = true

@@ -7,7 +7,6 @@ import com.ducnd.demorealmmvp.remote.model.ItemSong
 import com.ducnd.realmmvp.remote.interact.main.BaseApiConnector
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by ducnd on 8/10/17.
