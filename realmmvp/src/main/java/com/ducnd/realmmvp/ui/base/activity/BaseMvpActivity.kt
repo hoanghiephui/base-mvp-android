@@ -25,6 +25,4 @@ abstract class BaseMvpActivity<Presenter : IBasePresenter> : BaseActivity() {
         }
         super.onDestroyControl()
     }
-
-
 }

@@ -64,4 +64,8 @@ class AccountInteraction(connector: IApiConnector, store: StoreManager) : BaseIn
     override fun optimizeStore() {
         mStore.optimizeStore()
     }
+
+    override fun <T : RealmObject> deleteRealmObject(realmObject: T): Boolean {
+        return mStore.deleteRealmObjectAtMainThread(realmObject)
+    }
 }

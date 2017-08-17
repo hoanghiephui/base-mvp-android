@@ -6,6 +6,8 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.ducnd.demorealmmvp.common.ExApplication
+import com.ducnd.demorealmmvp.remote.interact.interf.IAccountInteraction
 import com.ducnd.demorealmmvp.remote.interact.interf.IBasePresenterM
 import com.ducnd.demorealmmvp.remote.model.MediaInfo
 import com.ducnd.realmmvp.ui.base.activity.BaseMvpActivity
@@ -38,6 +40,7 @@ abstract class BaseMvpActivityM<Presenter : IBasePresenterM> : BaseMvpActivity<P
                 if (File(mediaInfo.pathLocal).exists()) {
                     File(mediaInfo.pathLocal).delete()
                 }
+                mPresenter!!.deleteRealmObject(mediaInfo)
             }
         }
 
@@ -62,5 +65,9 @@ abstract class BaseMvpActivityM<Presenter : IBasePresenterM> : BaseMvpActivity<P
                     }
                 })
                 .into(ivImg)
+    }
+
+    protected fun getAccountInteractor(): IAccountInteraction {
+        return (applicationContext as ExApplication).getComponent()!!.accountCount
     }
 }

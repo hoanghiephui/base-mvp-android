@@ -267,6 +267,16 @@ abstract class BaseStoreManager(context: Context, nameSchema: String, versionSch
         }
     }
 
+    override fun <T : RealmObject> deleteRealmObjectAtMainThread(realmObject: T): Boolean {
+        if (!realmObject.isValid || !realmObject.isManaged || !realmObject.isLoaded) {
+            return false
+        }
+        mRealm.beginTransaction()
+        realmObject.deleteFromRealm()
+        mRealm.commitTransaction()
+        return true
+
+    }
 
     /**
      * close realm on main thread
