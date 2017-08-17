@@ -14,6 +14,7 @@ import android.util.Log
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.ducnd.realmmvp.R
+import com.ducnd.realmmvp.ui.customview.GlideApp
 import com.ducnd.realmmvp.utils.Constants
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
