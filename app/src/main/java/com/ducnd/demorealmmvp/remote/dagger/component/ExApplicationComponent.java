@@ -7,6 +7,7 @@ import com.ducnd.demorealmmvp.remote.dagger.anomation.AccountContext;
 import com.ducnd.demorealmmvp.remote.dagger.anomation.ApplicationContext;
 import com.ducnd.demorealmmvp.remote.dagger.module.ExApplicationModule;
 import com.ducnd.demorealmmvp.remote.interact.interf.IAccountInteraction;
+import com.ducnd.demorealmmvp.remote.interact.main.AccountInteraction;
 
 import javax.inject.Singleton;
 

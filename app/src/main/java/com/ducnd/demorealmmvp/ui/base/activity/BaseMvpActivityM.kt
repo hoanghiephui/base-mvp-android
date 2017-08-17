@@ -11,6 +11,7 @@ import com.ducnd.demorealmmvp.remote.interact.interf.IAccountInteraction
 import com.ducnd.demorealmmvp.remote.interact.interf.IBasePresenterM
 import com.ducnd.demorealmmvp.remote.model.MediaInfo
 import com.ducnd.realmmvp.ui.base.activity.BaseMvpActivity
+import com.ducnd.realmmvp.ui.customview.GlideApp
 import com.ducnd.realmmvp.ui.customview.ImageViewLocal
 import java.io.File
 
