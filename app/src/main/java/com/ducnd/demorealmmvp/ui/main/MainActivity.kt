@@ -42,7 +42,7 @@ class MainActivity : BaseMvpActivityM<IMain.Presenter>(), IMain.View, TextWatche
         val manager: LinearLayoutManager = LinearLayoutManager(this);
         rcSong!!.layoutManager = manager
         rcSong!!.adapter = mAdapter
-        mPresenter = MainPresenter(this, ((applicationContext as ExApplication).getComponent()!!.accountCount))
+        mPresenter = MainPresenter(this, getAccountInteractor())
     }
 
     override fun afterTextChanged(p0: Editable?) {

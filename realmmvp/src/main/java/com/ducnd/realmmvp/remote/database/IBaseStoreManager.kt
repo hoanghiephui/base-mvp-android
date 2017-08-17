@@ -34,6 +34,8 @@ interface IBaseStoreManager {
     fun <T : RealmObject> findItemAtMainThread(clazz: Class<T>, fieldName: String, valueCondition: String, action1Obtain: Action1Obtain<T>): T?
     fun <T : RealmObject> findItemAtFreeThread(clazz: Class<T>, fieldName: String, valueCondition: String, action1Obtain: Action1Obtain<T>): T?
 
+    fun <T : RealmObject> deleteRealmObjectAtMainThread(realmObject: T): Boolean
+
     fun optimizeStore()
 
     fun closeRealm()

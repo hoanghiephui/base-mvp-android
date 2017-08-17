@@ -7,6 +7,7 @@ import com.ducnd.demorealmmvp.remote.model.MediaInfo
 import com.ducnd.realmmvp.remote.interact.main.BasePresenter
 import com.ducnd.realmmvp.ui.base.BaseViewUI
 import io.reactivex.disposables.Disposable
+import io.realm.RealmObject
 
 /**
  * Created by ducnd on 8/11/17.
@@ -19,5 +20,9 @@ abstract class BasePresenterM<V : BaseViewUI>(view: V, protected var mAccountInt
 
     override fun findImageMediaInfoAtMainThread(fieldName: String, valueCondition: String): MediaInfo? {
         return mAccountInteraction.findItemAtMainThread(MediaInfo::class.java, fieldName, valueCondition)
+    }
+
+    override fun <T : RealmObject> deleteRealmObject(realmObject: T): Boolean {
+        return mAccountInteraction.deleteRealmObject(realmObject)
     }
 }

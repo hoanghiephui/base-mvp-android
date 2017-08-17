@@ -29,7 +29,7 @@ abstract class BaseMvpFragment<Presenter : IBasePresenter> : BaseFragment() {
         if (mIsDestroyView) {
             return
         }
-        if (mFirstLoad === -1.toLong()) {
+        if (mFirstLoad == (-1).toLong()) {
             action.call(t)
         } else {
             val currentTime = Date().time

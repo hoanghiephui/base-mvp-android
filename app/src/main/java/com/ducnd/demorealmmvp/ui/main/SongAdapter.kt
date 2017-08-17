@@ -29,13 +29,13 @@ class SongAdapter(intf: ISongAdapter) : RecyclerView.Adapter<SongAdapter.Compani
         if (item.avatar != null && !item.avatar.equals("")) {
             mInterf.loadImage(item.avatar!!, holder.ivImg)
         } else {
-            GlideApp.with(holder.ivImg)
-                    .load(R.drawable.zing)
-                    .placeholder(R.drawable.zing)
-                    .error(R.drawable.zing)
-                    .centerCrop()
-                    .override(500)
-                    .into(holder.ivImg)
+//            GlideApp.with(holder.ivImg)
+//                    .load(R.drawable.zing)
+//                    .placeholder(R.drawable.zing)
+//                    .error(R.drawable.zing)
+//                    .centerCrop()
+//                    .override(500)
+//                    .into(holder.ivImg)
         }
 
     }

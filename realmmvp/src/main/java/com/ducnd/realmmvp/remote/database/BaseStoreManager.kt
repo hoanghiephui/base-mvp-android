@@ -176,8 +176,8 @@ abstract class BaseStoreManager(context: Context, nameSchema: String, versionSch
      * @param actionExtrctID action get attribute id RealmObject
      */
     @MainThread
-    override fun <T : RealmObject> mergeListRealmObjectAndDeleteItemsNoMatchAtMainThread(listRealmObject: MutableList<T>, fieldID: String, actionExtractID: ActionExtractAttribute<T, String>) {
-        val results = getRealmObjectNotMathInDatabaseAtMainThread(listRealmObject, fieldID, actionExtractID, mRealm)
+    override fun <T : RealmObject> mergeListRealmObjectAndDeleteItemsNoMatchAtMainThread(listRealmObject: MutableList<T>, fieldID: String, actionExtratID: ActionExtractAttribute<T, String>) {
+        val results = getRealmObjectNotMathInDatabaseAtMainThread(listRealmObject, fieldID, actionExtratID, mRealm)
         if (results != null && !results.isEmpty()) {
             mRealm.beginTransaction()
             results.deleteAllFromRealm()
@@ -189,7 +189,7 @@ abstract class BaseStoreManager(context: Context, nameSchema: String, versionSch
     }
 
     private fun <T : RealmObject> getRealmObjectNotMathInDatabaseAtMainThread(listRealmObject: MutableList<T>?, fieldID: String, actionExtractID: ActionExtractAttribute<T, String>, realm: Realm): RealmResults<T>? {
-        if (listRealmObject == null && listRealmObject!!.size == 0) {
+        if (listRealmObject == null || listRealmObject.size == 0) {
             return null
         }
         val realmQuery: RealmQuery<T> = realm.where(listRealmObject.get(0).javaClass);
@@ -267,6 +267,16 @@ abstract class BaseStoreManager(context: Context, nameSchema: String, versionSch
         }
     }
 
+    override fun <T : RealmObject> deleteRealmObjectAtMainThread(realmObject: T): Boolean {
+        if (!realmObject.isValid || !realmObject.isManaged || !realmObject.isLoaded) {
+            return false
+        }
+        mRealm.beginTransaction()
+        realmObject.deleteFromRealm()
+        mRealm.commitTransaction()
+        return true
+
+    }
 
     /**
      * close realm on main thread

@@ -10,9 +10,9 @@ import android.graphics.drawable.Drawable
 import android.media.RingtoneManager
 import android.os.Build
 import android.support.v4.app.NotificationCompat
+import android.transition.Transition
 import android.util.Log
 import com.bumptech.glide.request.target.SimpleTarget
-import com.bumptech.glide.request.transition.Transition
 import com.ducnd.realmmvp.R
 import com.ducnd.realmmvp.ui.customview.GlideApp
 import com.ducnd.realmmvp.utils.Constants
@@ -78,36 +78,39 @@ abstract class BaseFirebaseMessagingService : FirebaseMessagingService() {
                                 .load(messagePush.linkImage)
                                 .override(300)
                                 .into<SimpleTarget<Bitmap>>(object : SimpleTarget<Bitmap>() {
-                                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>) {
-                                        val bm = createBitmapNotification(resource)
-                                        builderNotifaction.setLargeIcon(bm)
-                                        val resultPendingIntent = PendingIntent.getActivity(applicationContext, 0,
-                                                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-                                        builderNotifaction.setContentIntent(resultPendingIntent)
-                                        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                                        notificationManager.notify(messagePush.notificationID, builderNotifaction.build())
+                                    override fun onResourceReady(resource: Bitmap?, transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?) {
+                                        if (resource == null) {
+                                            showNotificationNomal(builderNotifaction, messagePush, resultIntent)
+                                        } else {
+                                            val bm = createBitmapNotification(resource)
+                                            builderNotifaction.setLargeIcon(bm)
+                                            val resultPendingIntent = PendingIntent.getActivity(applicationContext, 0,
+                                                    resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+                                            builderNotifaction.setContentIntent(resultPendingIntent)
+                                            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                                            notificationManager.notify(messagePush.notificationID, builderNotifaction.build())
+                                        }
                                     }
 
                                     override fun onLoadFailed(errorDrawable: Drawable?) {
-                                        builderNotifaction.setLargeIcon(BitmapFactory.decodeResource(resources, messagePush.resLargeIcon))
-                                        val resultPendingIntent = PendingIntent.getActivity(applicationContext, 0,
-                                                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-                                        builderNotifaction.setContentIntent(resultPendingIntent)
-                                        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                                        notificationManager.notify(messagePush.notificationID, builderNotifaction.build())
+                                        showNotificationNomal(builderNotifaction, messagePush, resultIntent)
                                     }
                                 })
                     })
 
         } else {
-            builderNotifaction.setLargeIcon(BitmapFactory.decodeResource(resources, messagePush.resLargeIcon))
-            val resultPendingIntent = PendingIntent.getActivity(applicationContext, 0,
-                    resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-            builderNotifaction.setContentIntent(resultPendingIntent)
-            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.notify(messagePush.notificationID, builderNotifaction.build())
+            showNotificationNomal(builderNotifaction, messagePush, resultIntent)
         }
 
+    }
+
+    private fun showNotificationNomal(builderNotifaction: NotificationCompat.Builder, messagePush: MessagePush, resultIntent: Intent) {
+        builderNotifaction.setLargeIcon(BitmapFactory.decodeResource(resources, messagePush.resLargeIcon))
+        val resultPendingIntent = PendingIntent.getActivity(applicationContext, 0,
+                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        builderNotifaction.setContentIntent(resultPendingIntent)
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(messagePush.notificationID, builderNotifaction.build())
     }
 
     private fun createBitmapNotification(source: Bitmap): Bitmap {
