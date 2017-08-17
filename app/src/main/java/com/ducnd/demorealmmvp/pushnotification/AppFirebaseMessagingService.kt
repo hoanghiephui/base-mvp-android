@@ -1,8 +1,8 @@
 package com.ducnd.demorealmmvp.pushnotification
 
 import android.os.Bundle
-import com.ducnd.demorealmmvp.ui.main.MainActivity
 import com.ducnd.demorealmmvp.R
+import com.ducnd.demorealmmvp.ui.main.MainActivity
 import com.ducnd.realmmvp.pushnotification.BaseFirebaseMessagingService
 import com.ducnd.realmmvp.pushnotification.MessagePush
 import com.google.firebase.messaging.RemoteMessage

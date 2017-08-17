@@ -1,7 +1,5 @@
 package com.ducnd.demorealmmvp.remote.model
 
-import com.google.gson.JsonObject
-import com.google.gson.JsonSerializer
 import com.google.gson.annotations.SerializedName
 import io.realm.RealmList
 import io.realm.RealmObject

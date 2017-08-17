@@ -10,8 +10,8 @@
         android:hint="@string/Song_name">
 
         <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
             android:id="@+id/edt_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingRight="16dp" />

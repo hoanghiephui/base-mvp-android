@@ -1,28 +1,26 @@
 package com.ducnd.realmmvp.pushnotification
 
 import android.app.Notification
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
-import android.support.v4.app.NotificationCompat
-import android.util.Log
-import com.google.firebase.messaging.FirebaseMessagingService
-import com.google.firebase.messaging.RemoteMessage
-import com.google.gson.JsonParseException
-
-import java.io.IOException
-import android.os.Build
-import android.media.RingtoneManager
 import android.content.Intent
 import android.graphics.*
+import android.graphics.drawable.Drawable
+import android.media.RingtoneManager
+import android.os.Build
+import android.support.v4.app.NotificationCompat
+import android.util.Log
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.ducnd.realmmvp.R
-import com.ducnd.realmmvp.ui.customview.GlideApp
-import android.app.PendingIntent
-import android.app.NotificationManager
-import android.graphics.drawable.Drawable
 import com.ducnd.realmmvp.utils.Constants
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
+import com.google.gson.JsonParseException
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import java.io.IOException
 
 
 /**

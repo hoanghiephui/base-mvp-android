@@ -9,7 +9,6 @@ import com.bumptech.glide.request.target.Target
 import com.ducnd.demorealmmvp.remote.interact.interf.IBasePresenterM
 import com.ducnd.demorealmmvp.remote.model.MediaInfo
 import com.ducnd.realmmvp.ui.base.fragment.BaseMvpFragment
-import com.ducnd.realmmvp.ui.customview.GlideApp
 import com.ducnd.realmmvp.ui.customview.ImageViewLocal
 import java.io.File
 
@@ -17,7 +16,7 @@ import java.io.File
  * Created by ducnd on 8/16/17.
  */
 
-abstract class BaseMvpFragmentM<Presenter : IBasePresenterM> : BaseMvpFragment<Presenter>(){
+abstract class BaseMvpFragmentM<Presenter : IBasePresenterM> : BaseMvpFragment<Presenter>() {
     @MainThread
     fun loadAndSaveImage(localFolderMedia: String, linkImage: String, ivImg: ImageViewLocal, resHolder: Int, targetSize: Int) {
         ivImg.destroyDisposable()

@@ -24,9 +24,9 @@
             <com.ducnd.realmmvp.ui.customview.ImageViewLocal
                 android:id="@+id/iv_img"
                 android:layout_width="86dp"
-                android:scaleType="centerCrop"
                 android:layout_height="86dp"
                 android:layout_margin="4dp"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/zing" />
 
             <LinearLayout
