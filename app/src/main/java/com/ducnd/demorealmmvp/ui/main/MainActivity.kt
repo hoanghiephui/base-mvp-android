@@ -7,7 +7,6 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import com.ducnd.demorealmmvp.R
-import com.ducnd.demorealmmvp.common.ExApplication
 import com.ducnd.demorealmmvp.remote.database.StoreManager
 import com.ducnd.demorealmmvp.remote.model.ItemSong
 import com.ducnd.demorealmmvp.remote.model.SongSearchResult
@@ -16,6 +15,8 @@ import com.ducnd.realmmvp.ui.customview.ImageViewLocal
 import com.ducnd.realmmvp.utils.action.Action1
 import io.reactivex.disposables.Disposable
 import io.realm.RealmList
+
+
 
 class MainActivity : BaseMvpActivityM<IMain.Presenter>(), IMain.View, TextWatcher, SongAdapter.ISongAdapter {
     private var dispose: Disposable? = null
