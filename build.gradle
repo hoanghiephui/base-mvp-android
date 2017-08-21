@@ -3,7 +3,7 @@
 buildscript {
     ext{
         kotlin_version = '1.1.4'
-        compat_version = '26.0.0'
+        compat_version = '26.0.1'
         rx_version = '2.0.1'
         multidex_version = '1.0.2'
         retrolambda_version = '3.7.0'
@@ -12,6 +12,7 @@ buildscript {
         retrofit_version = '2.3.0'
         glide_version = '4.0.0'
         firebase_version = '11.2.0'
+        rxrelay_version = '2.0.0'
     }
     repositories {
         google()
