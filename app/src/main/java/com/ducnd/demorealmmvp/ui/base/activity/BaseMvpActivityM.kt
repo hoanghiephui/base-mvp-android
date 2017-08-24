@@ -52,9 +52,8 @@ abstract class BaseMvpActivityM<Presenter : IBasePresenterM> : BaseMvpActivity<P
                 .centerCrop()
                 .override(targetSize)
                 .listener(object : RequestListener<Bitmap> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                        return true
-                    }
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean =
+                            true
 
                     override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                         if (resource != null) {
