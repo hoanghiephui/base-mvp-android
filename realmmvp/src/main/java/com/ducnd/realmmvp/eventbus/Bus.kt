@@ -1,5 +1,6 @@
 package com.ducnd.realmmvp.eventbus
 
+import android.support.annotation.MainThread
 import com.ducnd.realmmvp.utils.action.Action1
 
 /**
@@ -26,8 +27,8 @@ class Bus {
         val className = clazz.name
         for (elementBus in elementBuses) {
             if (className.equals(elementBus.id)) {
-                for (actionBus in elementBus.listAction) {
-                    if (actionBus.equals(actionBus)) {
+                for (action in elementBus.listAction) {
+                    if (action == actionBus) {
                         elementBus.listAction.remove(actionBus)
                         break
                     }
@@ -37,6 +38,7 @@ class Bus {
         }
     }
 
+    @MainThread
     fun <T> post(clazz: Class<T>, t: T) {
         val clazzName = clazz.name
         for (elementBus in elementBuses) {
