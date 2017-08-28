@@ -16,8 +16,9 @@ class MessagePush {
     val resLargeIcon: Int
     val isHideProvide: Boolean
     val clazzOpenNotitication: Class<out Activity>
+    val notificationChannel: String
 
-    constructor(notificationID: Int, clazzOpenNotitication: Class<out Activity>, title: String, content: String, data: Bundle, linkImage: String, resLargeIcon: Int, resSmallIcon: Int, isHideProvide: Boolean) {
+    constructor(notificationID: Int, clazzOpenNotitication: Class<out Activity>, title: String, content: String, data: Bundle, linkImage: String, resLargeIcon: Int, resSmallIcon: Int, isHideProvide: Boolean, notificationChannel: String) {
         this.notificationID = notificationID
         this.title = title
         this.content = content
@@ -27,9 +28,10 @@ class MessagePush {
         this.resLargeIcon = resLargeIcon
         this.isHideProvide = isHideProvide
         this.clazzOpenNotitication = clazzOpenNotitication
+        this.notificationChannel = notificationChannel
     }
 
-    constructor(notificationID: Int, clazzOpenNotitication: Class<out Activity>, title: String, content: String, data: Bundle, resLargeIcon: Int, resSmallIcon: Int, isHideProvide: Boolean) {
+    constructor(notificationID: Int, clazzOpenNotitication: Class<out Activity>, title: String, content: String, data: Bundle, resLargeIcon: Int, resSmallIcon: Int, isHideProvide: Boolean, notificationChannel: String) {
         this.notificationID = notificationID
         this.title = title
         this.content = content
@@ -39,6 +41,7 @@ class MessagePush {
         linkImage = null
         this.isHideProvide = isHideProvide
         this.clazzOpenNotitication = clazzOpenNotitication
+        this.notificationChannel = notificationChannel
     }
 
 

@@ -1,6 +1,7 @@
 package com.ducnd.realmmvp.pushnotification
 
 import android.app.Notification
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
@@ -29,6 +30,21 @@ import java.io.IOException
  */
 
 abstract class BaseFirebaseMessagingService : FirebaseMessagingService() {
+    private var listIDChanel: MutableList<String>? = null
+    override fun onCreate() {
+        super.onCreate()
+        listIDChanel = getActionIDChanelList()
+        if (listIDChanel != null && listIDChanel!!.size > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            for (s in listIDChanel!!) {
+                val chan1 = NotificationChannel(s, s, NotificationManager.IMPORTANCE_DEFAULT)
+                chan1.lightColor = Color.GREEN
+                chan1.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
+                val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                manager.createNotificationChannel(chan1)
+            }
+        }
+    }
+
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         super.onMessageReceived(remoteMessage)
         Log.d(BaseFirebaseMessagingService::class.java.simpleName, "onMessageReceived.........111")
@@ -47,11 +63,13 @@ abstract class BaseFirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 
+    protected abstract fun getActionIDChanelList(): MutableList<String>
+
     @Throws(NullPointerException::class, JsonParseException::class, IOException::class)
     protected abstract fun getMessagePushNotification(remoteMessage: RemoteMessage): MessagePush
 
     protected fun makeNotification(messagePush: MessagePush) {
-        val builderNotifaction = NotificationCompat.Builder(this, messagePush.notificationID.toString())
+        val builderNotifaction = NotificationCompat.Builder(this, messagePush.notificationChannel)
         val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         builderNotifaction.setSound(uri)
         builderNotifaction.setVibrate(longArrayOf(500L, 200L, 200L, 500L))

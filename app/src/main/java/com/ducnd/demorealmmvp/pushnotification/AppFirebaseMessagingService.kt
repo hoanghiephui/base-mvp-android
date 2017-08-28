@@ -15,6 +15,7 @@ import com.google.firebase.messaging.RemoteMessage
 class AppFirebaseMessagingService : BaseFirebaseMessagingService() {
     companion object {
         var count: Int = 0
+        val NOTIFICATON_CHANNEL_ID: String = "NOTIFICATON_CHANNEL_ID"
     }
 
     override fun getMessagePushNotification(remoteMessage: RemoteMessage): MessagePush {
@@ -24,7 +25,13 @@ class AppFirebaseMessagingService : BaseFirebaseMessagingService() {
         }
         count++
         val push = MessagePush(count, MainActivity::class.java, "Notification", message, Bundle(), "https://pbs.twimg.com/profile_images/378800000862544758/kgl8noIY_400x400.jpeg",
-                R.drawable.zing, R.drawable.ic_adb_black_24dp, true)
+                R.drawable.zing, R.drawable.ic_adb_black_24dp, true, NOTIFICATON_CHANNEL_ID)
         return push
+    }
+
+    override fun getActionIDChanelList(): MutableList<String> {
+        val listChannelId = mutableListOf<String>()
+        listChannelId.add(NOTIFICATON_CHANNEL_ID)
+        return listChannelId
     }
 }
