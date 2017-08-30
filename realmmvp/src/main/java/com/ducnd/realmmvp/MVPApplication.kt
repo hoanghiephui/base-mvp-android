@@ -13,7 +13,7 @@ import android.view.WindowManager
  * Created by ducnd on 8/8/17.
  */
 
-abstract class MVPApplication<AppComponent> : MultiDexApplication(), Application.ActivityLifecycleCallbacks {
+abstract class MVPApplication<AppComponent : Any> : MultiDexApplication(), Application.ActivityLifecycleCallbacks {
 
     companion object {
         var widthScreen: Int = 0
@@ -24,7 +24,7 @@ abstract class MVPApplication<AppComponent> : MultiDexApplication(), Application
             protected set
     }
 
-    protected var mComponent: AppComponent? = null
+    protected lateinit var mComponent: AppComponent
     protected lateinit var mActivitiesStarted: MutableList<Activity>
 
     override fun attachBaseContext(base: Context) {

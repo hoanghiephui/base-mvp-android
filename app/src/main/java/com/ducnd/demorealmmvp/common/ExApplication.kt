@@ -12,11 +12,11 @@ import com.ducnd.realmmvp.MVPApplication
 class ExApplication : MVPApplication<ExApplicationComponent>() {
     override fun initAppComponent() {
         mComponent = DaggerExApplicationComponent.builder().exApplicationModule(ExApplicationModule(this)).build()
-        mComponent!!.inject(this)
+        mComponent.inject(this)
     }
 
 
     override fun actionStopAllActivity() {
-        mComponent!!.accountCount.optimizeStore()
+        mComponent.accountCount.optimizeStore()
     }
 }
