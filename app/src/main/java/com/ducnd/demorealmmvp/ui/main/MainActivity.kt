@@ -15,14 +15,12 @@ import io.realm.RealmList
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-
 class MainActivity : BaseMvpActivityM<IMain.Presenter>(), IMain.View, TextWatcher, SongAdapter.ISongAdapter {
     private var dispose: Disposable? = null
     private lateinit var mAdapter: SongAdapter
     private var mItemSong: MutableList<ItemSong>? = null
 
-    override val layoutMain: Int
-        get() = R.layout.activity_main
+    override fun getLayoutMain(): Int = R.layout.activity_main
 
     override fun findViewByIds() {
         edt_name.addTextChangedListener(this)

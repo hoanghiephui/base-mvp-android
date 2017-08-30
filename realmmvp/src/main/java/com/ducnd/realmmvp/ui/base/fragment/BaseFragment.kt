@@ -30,9 +30,9 @@ abstract class BaseFragment : Fragment(), ViewFragment {
 
     override fun onCreateViewControl(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         if (inflater == null) {
-            val creatInflater: LayoutInflater = LayoutInflater.from(context);
-            return creatInflater.inflate(layoutMain, container, false)
-        } else return inflater.inflate(layoutMain, container, false)
+            val creatInflater: LayoutInflater = LayoutInflater.from(context)
+            return creatInflater.inflate(getLayoutMain(), container, false)
+        } else return inflater.inflate(getLayoutMain(), container, false)
     }
 
     final override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -130,15 +130,16 @@ abstract class BaseFragment : Fragment(), ViewFragment {
 
     companion object {
 
-        fun openFragment(manager: FragmentManager, transaction: FragmentTransaction, clazz: Class<out BaseFragment>, bundle: Bundle,
-                         hasAddbackstack: Boolean, hasCommitTransaction: Boolean, animations: AnimationScreen,
+        @JvmStatic
+        fun openFragment(manager: FragmentManager, transaction: FragmentTransaction, clazz: Class<out BaseFragment>, bundle: Bundle?,
+                         hasAddBackStack: Boolean, hasCommitTransaction: Boolean, animations: AnimationScreen?,
                          fragmentContent: Int): Fragment? {
             val tag = clazz.name
             var fragment: Fragment?
             try {
                 //if added backstack
                 fragment = manager.findFragmentByTag(tag)
-                if (hasAddbackstack) {
+                if (hasAddBackStack) {
                     if (fragment == null || !fragment.isAdded) {
                         fragment = clazz.newInstance()
                         fragment!!.arguments = bundle
@@ -172,15 +173,16 @@ abstract class BaseFragment : Fragment(), ViewFragment {
             return null
         }
 
-        fun openFragment(transaction: FragmentTransaction, fragment: BaseFragment, bundle: Bundle,
-                         hasAddbackstack: Boolean, hasCommitTransaction: Boolean, animations: AnimationScreen,
+        @JvmStatic
+        fun openFragment(transaction: FragmentTransaction, fragment: BaseFragment, bundle: Bundle?,
+                         hasAddBackStack: Boolean, hasCommitTransaction: Boolean, animations: AnimationScreen?,
                          fragmentContent: Int) {
             val tag = fragment.javaClass.name
             fragment.arguments = bundle
             setAnimationFragment(transaction, animations)
             transaction.add(fragmentContent, fragment, tag)
 
-            if (hasAddbackstack) {
+            if (hasAddBackStack) {
                 transaction.addToBackStack(tag)
             }
             if (hasCommitTransaction) {
@@ -188,14 +190,15 @@ abstract class BaseFragment : Fragment(), ViewFragment {
             }
         }
 
+        @JvmStatic
         fun hideFragment(manager: FragmentManager,
-                         transaction: FragmentTransaction, animations: AnimationScreen,
-                         hasAddBackstack: Boolean, hasCommit: Boolean, tag: String) {
+                         transaction: FragmentTransaction, animations: AnimationScreen?,
+                         hasAddBackStack: Boolean, hasCommit: Boolean, tag: String) {
             val fragment = manager.findFragmentByTag(tag) as BaseFragment
             if (fragment.isVisible) {
                 setAnimationFragment(transaction, animations)
                 transaction.hide(fragment)
-                if (hasAddBackstack) {
+                if (hasAddBackStack) {
                     transaction.addToBackStack(tag)
                 }
                 if (hasCommit) {
@@ -204,7 +207,8 @@ abstract class BaseFragment : Fragment(), ViewFragment {
             }
         }
 
-        fun removeFragment(manager: FragmentManager, transaction: FragmentTransaction, animations: AnimationScreen,
+        @JvmStatic
+        fun removeFragment(manager: FragmentManager, transaction: FragmentTransaction, animations: AnimationScreen?,
                            hasAddBackStack: Boolean, hasCommit: Boolean, tag: String) {
             val fragment = manager.findFragmentByTag(tag) as BaseFragment
             setAnimationFragment(transaction, animations)
@@ -217,6 +221,7 @@ abstract class BaseFragment : Fragment(), ViewFragment {
             }
         }
 
+        @JvmStatic
         private fun setAnimationFragment(transaction: FragmentTransaction, animations: AnimationScreen?) {
             if (animations != null) {
                 transaction.setCustomAnimations(animations.enterToLeft, animations.exitToLeft, animations.enterToRight, animations.exitToright)
@@ -224,6 +229,7 @@ abstract class BaseFragment : Fragment(), ViewFragment {
         }
 
 
+        @JvmStatic
         fun getCurrentFragment(fragmentManager: FragmentManager): BaseFragment? {
             val frags = fragmentManager.fragments
             if (frags != null) {

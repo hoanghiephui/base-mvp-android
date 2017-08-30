@@ -5,7 +5,7 @@ package com.ducnd.realmmvp.ui.base
  */
 
 interface BaseViewUI {
-    val layoutMain: Int
+    fun getLayoutMain(): Int
 
     fun findViewByIds()
 

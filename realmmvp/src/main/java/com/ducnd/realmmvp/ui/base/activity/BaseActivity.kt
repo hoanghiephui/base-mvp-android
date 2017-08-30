@@ -31,7 +31,7 @@ abstract class BaseActivity : AppCompatActivity(), ViewActivity, ActivityCompat.
 
     override fun onCreateControl(savedInstanceState: Bundle?) {
         if (!mIsClearMemoryActivity) {
-            setContentView(layoutMain)
+            setContentView(getLayoutMain())
             findViewByIds()
             initComponents()
             setEvents()
