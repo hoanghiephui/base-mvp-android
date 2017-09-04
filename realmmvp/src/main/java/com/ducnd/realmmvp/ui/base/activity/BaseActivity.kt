@@ -1,10 +1,12 @@
 package com.ducnd.realmmvp.ui.base.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ProgressBar
 import android.widget.Toast
 
@@ -122,6 +124,12 @@ abstract class BaseActivity : AppCompatActivity(), ViewActivity, ActivityCompat.
 
     override fun onPauseControl() {
 
+    }
+
+    override fun hideKeyBoard(): Boolean {
+        val view = currentFocus ?: return false
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        return imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     override final fun onStart() {

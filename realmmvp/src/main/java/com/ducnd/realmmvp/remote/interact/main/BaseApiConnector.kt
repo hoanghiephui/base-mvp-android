@@ -44,9 +44,9 @@ abstract class BaseApiConnector<Api> protected constructor(endpoint: String, mCl
                 .build())
         return client
                 .retryOnConnectionFailure(true)
-                .connectTimeout(2, TimeUnit.MINUTES)
-                .readTimeout(2, TimeUnit.MINUTES)
-                .writeTimeout(2, TimeUnit.MINUTES)
+                .connectTimeout(4, TimeUnit.MINUTES)
+                .readTimeout(4, TimeUnit.MINUTES)
+                .writeTimeout(4, TimeUnit.MINUTES)
                 .build()
     }
 

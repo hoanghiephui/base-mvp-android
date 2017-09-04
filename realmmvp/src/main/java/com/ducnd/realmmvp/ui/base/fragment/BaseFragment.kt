@@ -52,7 +52,7 @@ abstract class BaseFragment : Fragment(), ViewFragment {
         mAnimationContinueId = runAnimationContitue
     }
 
-    override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation {
+    override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
         if (mAnimationContinueId != 0) {
             val animation = AnimationUtils.loadAnimation(context, mAnimationContinueId)
             mAnimationContinueId = 0
@@ -73,18 +73,25 @@ abstract class BaseFragment : Fragment(), ViewFragment {
         }
     }
 
+    override fun getBaseActivity(): BaseActivity {
+        return activity as BaseActivity
+    }
+
     override fun showMessage(messageId: Int) {
         if (!mIsDestroyView) {
-            baseActivity.showMessage(messageId)
+            getBaseActivity().showMessage(messageId)
         }
     }
 
     override fun showMessage(message: String) {
         if (!mIsDestroyView) {
-            baseActivity.showMessage(message)
+            getBaseActivity().showMessage(message)
         }
     }
 
+    override fun hideKeyBoard(): Boolean {
+        return getBaseActivity().hideKeyBoard()
+    }
 
     final override fun onResume() {
         super.onResume()
@@ -104,7 +111,7 @@ abstract class BaseFragment : Fragment(), ViewFragment {
 
     }
 
-    final override fun onDestroyView() {
+    override fun onDestroyView() {
         mIsDestroyView = true
         onDestroyViewControl()
         super.onDestroyView()
@@ -114,15 +121,13 @@ abstract class BaseFragment : Fragment(), ViewFragment {
 
     }
 
-    val baseActivity: BaseActivity
-        get() = activity as BaseActivity
 
     override fun reload(bundle: Bundle) {
 
     }
 
     override fun onBackRoot() {
-        baseActivity.onBackParent()
+        getBaseActivity().onBackParent()
     }
 
     override val isDestroyView: Boolean

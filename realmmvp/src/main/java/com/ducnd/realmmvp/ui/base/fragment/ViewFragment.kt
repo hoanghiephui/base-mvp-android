@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.ducnd.realmmvp.ui.base.BaseViewUI
+import com.ducnd.realmmvp.ui.base.activity.BaseActivity
 
 /**
  * Created by ducnd on 8/10/17.
@@ -16,4 +17,5 @@ interface ViewFragment : BaseViewUI {
     fun onViewCreatedControl(view: View, savedInstanceState: Bundle?)
     fun onDestroyViewControl()
     fun reload(bundle: Bundle)
+    fun getBaseActivity(): BaseActivity
 }

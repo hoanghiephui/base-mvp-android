@@ -22,13 +22,13 @@ abstract class BasePresenter<V : BaseViewUI>(val view: V) : IBasePresenter {
         mIsDestroy = false;
     }
 
-    protected fun <T> subscribeHasDispose(observable: Observable<T>, onNext: Action1<T>, onError: Action1<Throwable>) {
+    protected fun <T> subscribeHasDispose(observable: Observable<T>, onNext: (T) -> Unit, onError: (Throwable) -> Unit) {
         mDiableAll.add(observable.subscribe(
                 {
                     if (mIsDestroy!!) {
                         return@subscribe
                     }
-                    onNext.call(it)
+                    onNext(it)
                 },
                 {
                     run {
@@ -38,19 +38,19 @@ abstract class BasePresenter<V : BaseViewUI>(val view: V) : IBasePresenter {
                         if (mIsDestroy!!) {
                             return@run;
                         }
-                        onError.call(it);
+                        onError(it)
                     }
                 }));
 
     }
 
-    protected fun <T> subscribeNotDispose(observable: Observable<T>, onNext: Action1<T>, onError: Action1<Throwable>) {
+    protected fun <T> subscribeNotDispose(observable: Observable<T>, onNext: (T) -> Unit, onError: (Throwable) -> Unit) {
         observable.subscribe(
                 {
                     if (mIsDestroy!!) {
                         return@subscribe
                     }
-                    onNext.call(it)
+                    onNext(it)
                 },
                 {
                     run {
@@ -60,18 +60,18 @@ abstract class BasePresenter<V : BaseViewUI>(val view: V) : IBasePresenter {
                         if (mIsDestroy!!) {
                             return@run;
                         }
-                        onError.call(it);
+                        onError(it)
                     }
                 })
     }
 
-    protected fun <T> subscribeResuleDispose(observable: Observable<T>, onNext: Action1<T>, onError: Action1<Throwable>): Disposable {
+    protected fun <T> subscribeResuleDispose(observable: Observable<T>, onNext: (T) -> Unit, onError: (Throwable) -> Unit): Disposable {
         return observable.subscribe(
                 {
                     if (mIsDestroy!!) {
                         return@subscribe
                     }
-                    onNext.call(it)
+                    onNext(it)
                 },
                 {
                     run {
@@ -81,7 +81,7 @@ abstract class BasePresenter<V : BaseViewUI>(val view: V) : IBasePresenter {
                         if (mIsDestroy!!) {
                             return@run;
                         }
-                        onError.call(it);
+                        onError(it)
                     }
                 })
     }

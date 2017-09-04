@@ -29,4 +29,6 @@ interface BaseViewUI {
 
     fun onPauseControl()
 
+    fun hideKeyBoard() :Boolean
+
 }
