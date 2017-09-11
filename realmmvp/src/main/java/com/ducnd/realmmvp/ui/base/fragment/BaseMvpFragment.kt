@@ -49,7 +49,7 @@ abstract class BaseMvpFragment<Presenter : IBasePresenter> : BaseFragment() {
 
 
     override fun onDestroyViewControl() {
-        mPresenter!!.onDestroy()
+        mPresenter?.onDestroy()
         super.onDestroyViewControl()
     }
 }
