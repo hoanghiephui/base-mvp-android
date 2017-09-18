@@ -1,5 +1,6 @@
 package com.ducnd.realmmvp.remote.interact.main
 
+import android.content.Context
 import com.ducnd.realmmvp.BuildConfig
 import com.ducnd.realmmvp.remote.interact.source.IBaseApiConnector
 import com.ducnd.realmmvp.utils.Constants
@@ -16,8 +17,9 @@ import java.util.concurrent.TimeUnit
  * Created by ducnd on 8/9/17.
  */
 
-abstract class BaseApiConnector<Api> protected constructor(endpoint: String, mClazz: Class<Api>) : IBaseApiConnector {
+abstract class BaseApiConnector<Api> protected constructor(endpoint: String, mClazz: Class<Api>, context: Context) : IBaseApiConnector {
     protected val mApi: Api
+    var mContext: Context = context
 
     init {
         mApi = createRetrofit(endpoint).create(mClazz)
@@ -34,6 +36,9 @@ abstract class BaseApiConnector<Api> protected constructor(endpoint: String, mCl
 
     private fun createOkHttp(): OkHttpClient {
         val client = OkHttpClient.Builder()
+        if (getInterceptor() != null) {
+            client.addInterceptor(getInterceptor())
+        }
         client.addInterceptor(LoggingInterceptor.Builder()
                 .loggable(Constants.DEBUG)
                 .setLevel(Level.BASIC)

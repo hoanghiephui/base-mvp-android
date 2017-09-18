@@ -11,7 +11,6 @@ import android.graphics.drawable.Drawable
 import android.media.RingtoneManager
 import android.os.Build
 import android.support.v4.app.NotificationCompat
-import android.transition.Transition
 import android.util.Log
 import com.bumptech.glide.request.target.SimpleTarget
 import com.ducnd.realmmvp.R
