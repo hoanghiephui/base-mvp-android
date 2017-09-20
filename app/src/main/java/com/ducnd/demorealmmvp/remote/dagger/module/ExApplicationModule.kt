@@ -31,7 +31,7 @@ class ExApplicationModule(private val mContextApp: Context) {
     @Singleton
     @AccountContext
     internal fun providesAccountInteraction(): IAccountInteraction {
-        return AccountInteraction(ApiConnector("http://j.ginggong.com", ResApi::class.java), StoreManager(mContextApp))
+        return AccountInteraction(ApiConnector("http://j.ginggong.com", ResApi::class.java, mContextApp), StoreManager(mContextApp))
     }
 
 }

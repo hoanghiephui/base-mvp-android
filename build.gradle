@@ -2,8 +2,8 @@
 
 buildscript {
     ext{
-        kotlin_version = '1.1.4'
-        compat_version = '26.0.1'
+        kotlin_version = '1.1.4-3'
+        compat_version = '26.0.2'
         rx_version = '2.0.1'
         multidex_version = '1.0.2'
         retrolambda_version = '3.7.0'
@@ -11,7 +11,7 @@ buildscript {
         okhttp_version = '3.8.1'
         retrofit_version = '2.3.0'
         glide_version = '4.0.0'
-        firebase_version = '11.2.0'
+        firebase_version = '11.2.2'
         rxrelay_version = '2.0.0'
     }
     repositories {
@@ -21,8 +21,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-beta6'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "io.realm:realm-gradle-plugin:3.5.0"
-        classpath 'com.google.gms:google-services:3.1.0'
+        classpath "io.realm:realm-gradle-plugin:3.7.2"
+        classpath 'com.google.gms:google-services:3.1.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
