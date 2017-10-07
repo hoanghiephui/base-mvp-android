@@ -67,6 +67,6 @@ abstract class BaseMvpActivityM<Presenter : IBasePresenterM> : BaseMvpActivity<P
     }
 
     protected fun getAccountInteractor(): IAccountInteraction {
-        return (applicationContext as ExApplication).getComponent()!!.accountCount
+        return (applicationContext as ExApplication).getComponent().accountCount
     }
 }
