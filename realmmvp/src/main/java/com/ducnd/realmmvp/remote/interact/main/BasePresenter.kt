@@ -3,7 +3,6 @@ package com.ducnd.realmmvp.remote.interact.main
 import com.ducnd.realmmvp.remote.interact.source.IBasePresenter
 import com.ducnd.realmmvp.ui.base.BaseViewUI
 import com.ducnd.realmmvp.utils.Constants
-import com.ducnd.realmmvp.utils.action.Action1
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
