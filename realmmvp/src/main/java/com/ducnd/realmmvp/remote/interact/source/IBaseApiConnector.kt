@@ -7,5 +7,4 @@ import okhttp3.Interceptor
  */
 
 interface IBaseApiConnector {
-    fun getInterceptor(): Interceptor?
 }

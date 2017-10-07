@@ -53,7 +53,7 @@ abstract class MVPApplication<AppComponent : Any> : MultiDexApplication(), Appli
         registerActivityLifecycleCallbacks(this)
     }
 
-    fun getComponent(): AppComponent? {
+    fun getComponent(): AppComponent {
         return mComponent
     }
 

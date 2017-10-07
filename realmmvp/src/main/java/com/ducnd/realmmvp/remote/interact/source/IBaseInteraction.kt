@@ -1,6 +1,7 @@
 package com.ducnd.realmmvp.remote.interact.source
 
 import android.graphics.Bitmap
+import com.ducnd.realmmvp.utils.action.Action1
 import io.reactivex.disposables.Disposable
 import io.realm.RealmObject
 
@@ -14,4 +15,8 @@ interface IBaseInteraction<DataCommon> {
     fun saveMediaInfoAtFreeThread(bitmap: Bitmap, localFolderMedia: String, linkImage: String): Disposable
 
     fun <T : RealmObject> findItemAtMainThread(clazz: Class<T>, fieldName: String, valueCondition: String): T?
+
+    fun <T> register(clazz: Class<T>, actionBus: Action1<T>)
+    fun <T> post(clazz: Class<T>, t: T)
+    fun <T> unregister(clazz: Class<T>, actionBus: Action1<T>)
 }

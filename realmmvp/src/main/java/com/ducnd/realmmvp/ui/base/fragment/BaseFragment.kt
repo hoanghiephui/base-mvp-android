@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
+import com.ducnd.realmmvp.MVPApplication
 
 import com.ducnd.realmmvp.ui.base.AnimationScreen
 import com.ducnd.realmmvp.ui.base.activity.BaseActivity
@@ -91,6 +92,10 @@ abstract class BaseFragment : Fragment(), ViewFragment {
 
     override fun hideKeyBoard(): Boolean {
         return getBaseActivity().hideKeyBoard()
+    }
+
+    protected fun <T : Any> getComponent(): T {
+        return (activity.applicationContext as MVPApplication<T>).getComponent()
     }
 
     final override fun onResume() {
