@@ -14,9 +14,9 @@ import com.ducnd.realmmvp.utils.action.Action1
 abstract class BaseInteract<CommonData, out ApiConnector : IBaseApiConnector, out Store : IBaseStoreManager>
 (connector: ApiConnector, store: Store) : IBaseInteraction<CommonData> {
 
-    protected val mConnector: ApiConnector = connector
+    protected val mConnector: ApiConnector = connector;
     protected val mStore: Store = store;
-    protected var mCommonData: CommonData? = null
+    protected var mCommonData: CommonData? = null;
     private val bus: Bus
 
     init {
@@ -40,4 +40,16 @@ abstract class BaseInteract<CommonData, out ApiConnector : IBaseApiConnector, ou
         bus.unregister(clazz, actionBus)
     }
 
+    override fun <T> registerList(clazz: Class<T>, actionBus: Action1<MutableList<T>>) {
+        bus.registerList(clazz, actionBus)
+    }
+
+    @MainThread
+    override fun <T> postList(clazz: Class<T>, list: MutableList<T>) {
+        bus.postList(clazz, list)
+    }
+
+    override fun <T> unregisterList(clazz: Class<T>, actionBus: Action1<MutableList<T>>) {
+        bus.unregisterList(clazz, actionBus)
+    }
 }

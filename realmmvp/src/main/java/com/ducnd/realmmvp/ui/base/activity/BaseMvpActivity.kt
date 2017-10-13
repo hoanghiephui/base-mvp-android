@@ -1,5 +1,6 @@
 package com.ducnd.realmmvp.ui.base.activity
 
+import com.ducnd.realmmvp.MVPApplication
 import com.ducnd.realmmvp.remote.interact.source.IBasePresenter
 
 /**
@@ -15,5 +16,9 @@ abstract class BaseMvpActivity<Presenter : IBasePresenter> : BaseActivity() {
             mPresenter!!.onDestroy()
         }
         super.onDestroyControl()
+    }
+
+    protected fun <T : Any> getComponent(): T {
+        return (applicationContext as MVPApplication<T>).getComponent()
     }
 }

@@ -17,8 +17,9 @@ interface IBaseInteraction<DataCommon> {
     fun <T : RealmObject> findItemAtMainThread(clazz: Class<T>, fieldName: String, valueCondition: String): T?
 
     fun <T> register(clazz: Class<T>, actionBus: Action1<T>)
-
     fun <T> post(clazz: Class<T>, t: T)
-
     fun <T> unregister(clazz: Class<T>, actionBus: Action1<T>)
+    fun <T> registerList(clazz: Class<T>, actionBus: Action1<MutableList<T>>)
+    fun <T> postList(clazz: Class<T>, list: MutableList<T>)
+    fun <T> unregisterList(clazz: Class<T>, actionBus: Action1<MutableList<T>>)
 }

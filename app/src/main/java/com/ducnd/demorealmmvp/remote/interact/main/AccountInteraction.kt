@@ -23,6 +23,9 @@ class AccountInteraction(connector: IApiConnector, store: StoreManager) : BaseIn
 
     override fun getListSong(name: String): Observable<MutableList<ItemSong>> {
         return mConnector.getListSong(name)
+                .doAfterNext({
+                    postList(ItemSong::class.java, it)
+                })
     }
 
     override fun saveSongSearchResult(songSearchResult: SongSearchResult) {
