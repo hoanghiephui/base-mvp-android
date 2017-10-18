@@ -9,9 +9,9 @@ interface BaseViewUI {
 
     fun findViewByIds()
 
-    fun setEvents()
-
     fun initComponents()
+
+    fun setEvents()
 
     fun onBackRoot()
 
