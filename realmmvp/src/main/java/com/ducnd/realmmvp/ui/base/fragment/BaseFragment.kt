@@ -24,7 +24,7 @@ abstract class BaseFragment : Fragment(), ViewFragment {
     protected var mAnimationContinueId: Int = 0
     protected var mProgressBar: ProgressBar? = null
 
-    final override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    final override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mIsDestroyView = false
         return onCreateViewControl(inflater, container, savedInstanceState)
     }
@@ -36,11 +36,9 @@ abstract class BaseFragment : Fragment(), ViewFragment {
         } else return inflater.inflate(getLayoutMain(), container, false)
     }
 
-    final override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (view != null) {
-            onViewCreatedControl(view, savedInstanceState)
-        }
+        onViewCreatedControl(view, savedInstanceState)
     }
 
     override fun onViewCreatedControl(view: View, savedInstanceState: Bundle?) {
@@ -64,13 +62,13 @@ abstract class BaseFragment : Fragment(), ViewFragment {
 
     override fun showProgress() {
         if (!mIsDestroyView && mProgressBar != null) {
-            mProgressBar!!.visibility = View.VISIBLE
+            mProgressBar?.visibility = View.VISIBLE
         }
     }
 
     override fun hideProgress() {
         if (!mIsDestroyView && mProgressBar != null) {
-            mProgressBar!!.visibility = View.GONE
+            mProgressBar?.visibility = View.GONE
         }
     }
 
@@ -95,7 +93,7 @@ abstract class BaseFragment : Fragment(), ViewFragment {
     }
 
     protected fun <T : Any> getComponent(): T {
-        return (activity.applicationContext as MVPApplication<T>).getComponent()
+        return (activity?.applicationContext as MVPApplication<T>).getComponent()
     }
 
     final override fun onResume() {
@@ -152,7 +150,7 @@ abstract class BaseFragment : Fragment(), ViewFragment {
                 if (hasAddBackStack) {
                     if (fragment == null || !fragment.isAdded) {
                         fragment = clazz.newInstance()
-                        fragment!!.arguments = bundle
+                        fragment?.arguments = bundle
                         setAnimationFragment(transaction, animations)
                         transaction.add(fragmentContent, fragment, tag)
                     } else {
@@ -165,7 +163,7 @@ abstract class BaseFragment : Fragment(), ViewFragment {
                         transaction.show(fragment)
                     } else {
                         fragment = clazz.newInstance()
-                        fragment!!.arguments = bundle
+                        fragment?.arguments = bundle
                         setAnimationFragment(transaction, animations)
                         transaction.add(fragmentContent, fragment, tag)
                     }

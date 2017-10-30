@@ -24,28 +24,28 @@ class PermissionGrantUtils {
                 return true
             }
             val pers = ArrayList<String>()
-            if (ActivityCompat.checkSelfPermission(fragment.activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                if (!ActivityCompat.shouldShowRequestPermissionRationale(fragment.activity, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    if (SharedPfPermissionUtils.getNumberDeniedPermission(fragment.context, Manifest.permission.READ_EXTERNAL_STORAGE) > 0) {
+            if (fragment.context?.let { ActivityCompat.checkSelfPermission(it, Manifest.permission.READ_EXTERNAL_STORAGE) } != PackageManager.PERMISSION_GRANTED) {
+                if (!fragment.activity?.let { ActivityCompat.shouldShowRequestPermissionRationale(it, Manifest.permission.READ_EXTERNAL_STORAGE) }!!) {
+                    if (fragment.context?.let { SharedPfPermissionUtils.getNumberDeniedPermission(it, Manifest.permission.READ_EXTERNAL_STORAGE) }!! > 0) {
                         showDialogConfirmOpenSetting(fragment, requestCode, backCancelancelIf)
                         return false
                     }
                 }
                 pers.add(Manifest.permission.READ_EXTERNAL_STORAGE)
             } else {
-                SharedPfPermissionUtils.saveNumberDeniedPermission(fragment.activity, Manifest.permission.READ_EXTERNAL_STORAGE, 0)
+                SharedPfPermissionUtils.saveNumberDeniedPermission(fragment.context!!, Manifest.permission.READ_EXTERNAL_STORAGE, 0)
             }
 
-            if (ActivityCompat.checkSelfPermission(fragment.activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                if (!ActivityCompat.shouldShowRequestPermissionRationale(fragment.activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    if (SharedPfPermissionUtils.getNumberDeniedPermission(fragment.context, Manifest.permission.WRITE_EXTERNAL_STORAGE) > 0) {
+            if (ActivityCompat.checkSelfPermission(fragment.context!!, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(fragment.activity!!, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    if (SharedPfPermissionUtils.getNumberDeniedPermission(fragment.context!!, Manifest.permission.WRITE_EXTERNAL_STORAGE) > 0) {
                         showDialogConfirmOpenSetting(fragment, requestCode, backCancelancelIf)
                         return false
                     }
                 }
                 pers.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
             } else {
-                SharedPfPermissionUtils.saveNumberDeniedPermission(fragment.activity, Manifest.permission.WRITE_EXTERNAL_STORAGE, 0)
+                SharedPfPermissionUtils.saveNumberDeniedPermission(fragment.context!!, Manifest.permission.WRITE_EXTERNAL_STORAGE, 0)
             }
 
             if (pers.size == 0) {
@@ -144,16 +144,16 @@ class PermissionGrantUtils {
             }
             val pers = ArrayList<String>()
             for (per in perCheck) {
-                if (ActivityCompat.checkSelfPermission(fragment.activity, per) != PackageManager.PERMISSION_GRANTED) {
-                    if (!ActivityCompat.shouldShowRequestPermissionRationale(fragment.activity, per)) {
-                        if (SharedPfPermissionUtils.getNumberDeniedPermission(fragment.activity, per) > 0) {
-                            showDialogConfirmOpenSetting(fragment.activity, requestCode, backCancelancelIf)
+                if (ActivityCompat.checkSelfPermission(fragment.context!!, per) != PackageManager.PERMISSION_GRANTED) {
+                    if (!ActivityCompat.shouldShowRequestPermissionRationale(fragment.activity!!, per)) {
+                        if (SharedPfPermissionUtils.getNumberDeniedPermission(fragment.activity!!, per) > 0) {
+                            showDialogConfirmOpenSetting(fragment.activity!!, requestCode, backCancelancelIf)
                             return false
                         }
                     }
                     pers.add(per)
                 } else {
-                    SharedPfPermissionUtils.saveNumberDeniedPermission(fragment.activity, per, 0)
+                    SharedPfPermissionUtils.saveNumberDeniedPermission(fragment.context!!, per, 0)
                 }
             }
 
@@ -173,10 +173,10 @@ class PermissionGrantUtils {
 
         @JvmStatic
         private fun showDialogConfirmOpenSetting(fragment: Fragment, requestCode: Int, backCancelancelIf: Boolean) {
-            val dialog = ConfirmDialog(fragment.activity, R.string.You_need_open_setting_to_grant_permission, object : ConfirmDialog.IConfirmDialog {
+            val dialog = ConfirmDialog(fragment.context!!, R.string.You_need_open_setting_to_grant_permission, object : ConfirmDialog.IConfirmDialog {
                 override fun onClickCancel() {
                     if (backCancelancelIf) {
-                        fragment.activity.onBackPressed()
+                        fragment.activity?.onBackPressed()
                     }
                 }
 
@@ -184,7 +184,7 @@ class PermissionGrantUtils {
                     val intent = Intent()
                     intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                     intent.addCategory(Intent.CATEGORY_DEFAULT)
-                    intent.data = Uri.parse("package:" + fragment.activity.packageName)
+                    intent.data = Uri.parse("package:" + fragment.activity?.packageName)
                     fragment.startActivityForResult(intent, requestCode)
                 }
             })

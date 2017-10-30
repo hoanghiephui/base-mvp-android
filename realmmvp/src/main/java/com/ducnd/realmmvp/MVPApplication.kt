@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.multidex.MultiDex
 import android.support.multidex.MultiDexApplication
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.WindowManager
 
 /**
@@ -14,6 +15,7 @@ import android.view.WindowManager
  */
 
 abstract class MVPApplication<AppComponent : Any> : MultiDexApplication(), Application.ActivityLifecycleCallbacks {
+    open val TAG = MVPApplication::class.java.simpleName
 
     companion object {
         var widthScreen: Int = 0
@@ -72,7 +74,7 @@ abstract class MVPApplication<AppComponent : Any> : MultiDexApplication(), Appli
     }
 
     override fun onActivityDestroyed(act: Activity?) {
-
+        Log.d(TAG, act?.toString())
     }
 
     override fun onActivitySaveInstanceState(act: Activity?, bundle: Bundle?) {
