@@ -1,0 +1,41 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext{
+        kotlin_version = '1.1.4-3'
+        compat_version = '26.0.2'
+        rx_version = '2.0.1'
+        multidex_version = '1.0.2'
+        retrolambda_version = '3.7.0'
+        gson_version = '2.8.1'
+        okhttp_version = '3.8.1'
+        retrofit_version = '2.3.0'
+        glide_version = '4.0.0'
+        firebase_version = '11.2.2'
+        rxrelay_version = '2.0.0'
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "io.realm:realm-gradle-plugin:3.7.2"
+        classpath 'com.google.gms:google-services:3.1.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

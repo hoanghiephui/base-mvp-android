@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "688633703098",
+    "firebase_url": "https://realmmvp-587fe.firebaseio.com",
+    "project_id": "realmmvp-587fe",
+    "storage_bucket": "realmmvp-587fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688633703098:android:cdee8d3ac978eb24",
+        "android_client_info": {
+          "package_name": "com.ducnd.demorealmmvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688633703098-o4c9adjbp80gkkndikh88845jsafe890.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ducnd.demorealmmvp",
+            "certificate_hash": "b0cc475f7f383af07e8b35d51b833a162d569234"
+          }
+        },
+        {
+          "client_id": "688633703098-g4une0nrdefnoseborbctvmvbu9pksq7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsDcdyw62ewsDMo1Z9Zo35pF4Pb3QVsHs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688633703098-g4une0nrdefnoseborbctvmvbu9pksq7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
