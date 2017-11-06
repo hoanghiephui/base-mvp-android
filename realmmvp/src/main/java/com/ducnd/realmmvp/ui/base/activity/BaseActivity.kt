@@ -148,9 +148,7 @@ abstract class BaseActivity : AppCompatActivity(), ViewActivity, ActivityCompat.
         super.onStop()
     }
 
-    override fun onStopControl() {
-
-    }
+    override fun onStopControl() {}
 
     final override fun onDestroy() {
         mIsDestroyView = true
