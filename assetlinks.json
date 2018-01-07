@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.bitcoin.wallet",
+    "sha256_cert_fingerprints":
+    ["C8:1D:18:61:83:B4:96:F4:A9:94:6E:B3:05:94:73:07:41:CE:3D:81:56:8F:8A:64:4B:1A:19:69:32:9A:9A:FD"]
+  }
+}]
