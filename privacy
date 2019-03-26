@@ -1,0 +1,85 @@
+ProtonVPN Service 
+Privacy Policy
+
+Last modified: January 23rd, 2019
+
+In the following policy, ProtonVPN refers to the service offered by ProtonVPN AG (the "Company" or "We") through the protonvpn.com website and the software provided through it (the "Service"). This Privacy Policy explains (i) what information we collect through your access and use of our Service, (ii) the use we make of such information, and (iii) the security level we provide for protecting such information.
+
+By visiting protonvpn.com and using the Services provided here, you consent to the terms outlined in this Privacy Policy.
+
+Philosophy
+Our Company is committed to protecting and respecting your privacy. It is our overriding policy to collect as little user information as possible to ensure a private and anonymous user experience when using the Service. Below is a summary of the way we deal with information when you use ProtonVPN.
+
+ProtonVPN is a No-Logs VPN service
+When you use ProtonVPN, we do NOT do any of the following:
+
+Log users’ traffic or the content of any communications
+Discriminate against devices, protocols, or applications
+Throttle your Internet connection
+You can find details about our no-logs VPN policy here.
+
+Data we collect and why we collect it
+Personal data (related to your account):
+Account creation: To create an account, in order to use our Service, we do not ask your name or surname. All you need to do is select your username, then provide the email address and choose your password. You can also register with your existing ProtonID.
+
+We do store the email address (or ProtonID) you have entered when creating an account for communication and anti-abuse purposes. If you are referred to ProtonVPN by a friend or some other third-party who is participating in our referral program, we may associate your account with the referrer to appropriately credit the referrer.
+
+Support: When you submit support requests or bug reports, we will collect the data that you choose to share with us about the issue being reported. Bug reports sometimes rely on third parties, such as Zendesk.
+
+Payment: The Company relies on third parties to process credit card and PayPal transactions, and we do not save your full credit card details. For example, if you make a payment with a credit card, your name and the last 4 digits of the credit card number will become part of the invoice and saved by us. Anonymous cash or Bitcoin payments and donations are also accepted.
+
+How we use this personal data: Your email address is not shared with any third parties. We mainly use it for account-related questions, communication, and recovery. By signing up to our Service, you agree to receive communications from us, which may include promotional emails too. You can stop receiving emails from us by following the unsubscribe instructions included in every email we send. Alternatively, you can login to the ProtonVPN dashboard and adjust your email preferences under the ‘Account’ tab.
+
+We might also use your data for payment-related matters. This includes sending you emails, invoices, receipts, notices of delinquency, and alerting you if you need to update payment details. We use third parties for secure credit card transaction processing, and we send billing information to those third parties to process your credit card payments.
+
+The information you provide when you contact our support team is processed for analytics purposes (such as to obtain aggregate statistics on the number of Android complaints), but they are not combined with any personal data. We do not do any targeted advertising or any profiling.
+
+Right to Access, Rectification, Erasure, Portability, and right to lodge a complaint: Through the Service, you can directly access, edit, delete or export personal data processed by the Company in your use of the Service.
+
+If your account has been suspended for a breach of our terms and conditions, and you would like to exercise the rights related to your personal data, you can make a request to our support team.
+
+In case of violation of your rights, you have the right to lodge a complaint to the competent supervisory authority.
+
+Data retention: Active accounts will have data retained indefinitely until they are requested to be deleted by the user.
+
+Data sharing: ProtonVPN AG may share your data with other companies within the Proton group of companies, which includes Proton Technologies AG, ProtonLabs, and other Proton affiliated companies (for example, if you are both a ProtonVPN and ProtonMail user).
+
+Non-personal data (protonvpn.com website and our native applications)
+Visiting our website: We may employ a local installation of Matomo, an open source analytics tool, or an externally hosted analytics solution like Google Analytics. We only use analytics software to collect non-identifying information, such as: title of the page being viewed, screen resolution, outlinks, referrers, and page and website speed. This data cannot be used to personally identify users or visitors as we do not log IP addresses and connect them to specific user accounts.
+
+Why we use analytics software: We use analytics software to help us deliver a higher quality of service. For instance, looking in aggregate at the geographic distribution of ProtonVPN users allows us to understand which countries have the most need for ProtonVPN and allocate development resources towards providing the best service in those countries. Viewing longer term trends in the number of visitors from different countries also allows us to identify quickly which countries have started to block ProtonVPN and take measures to counteract those blocks. Finally, analytics also helps with our outreach and growth initiatives, which are efforts to help ProtonVPN reach and protect the largest number of people possible.
+
+How do we collect non-personal website data: We may use various cookies to collect and store information when you visit our website. Users can control the use of cookies at the individual browser level. If you want to opt out from Google Analytics cookie tracking, you can do so by using this plugin.
+
+Using our native applications (apps)
+When you use our native apps, we may collect certain information in addition to the information mentioned elsewhere in this Policy. We may use mobile analytics software (such as fabric.io app statistics and crash reporting, Play Store app statistics, Hockeyapp crash reporting, or self-hosted Sentry crash reporting) to send crash information to our developers so that we can fix bugs rapidly. Some platforms (such as the Google Play Store or the Apple App Store) may also collect aggregate, anonymous statistics, such as which type of devices and operating systems are most commonly used (e.g. percentage of Android 6.x vs Android 7.x), the total number of installs, total number of uninstalls, and the total number of active users, and may be governed by the privacy policy and terms and conditions of Google Play Store or Apple App Store.
+
+None of the software on our apps will ever access or track any location-based information from your device at any time.
+
+Public Information and Third-Party Websites
+Blog: We have a public blog on our website. Any information you include in a comment on our blog may be read, collected, and used by anyone. If your personal information appears on our blog and you want it removed, contact us here.
+
+Social media: We are active on Facebook, Twitter, and Reddit. Any information, communication, or material you submit to us via social media platforms is done at your own risk without any guarantee of privacy. We cannot control the actions of other users of these platforms or the actions of the platforms themselves. Your interactions with those features and platforms are governed by the privacy policies of the companies that provide them.
+
+Links to other websites: Our website may contain links to other websites of interest. However, we are not responsible for the content of any website that we link to, and external sites are governed by their own terms and conditions and privacy policies.
+
+Data we monitor from ProtonVPN sessions
+Each time a user connects to the Service, we only monitor the timestamp of the last successful login attempt. This gets overwritten each time you successfully log in. This timestamp does not contain any identifying information, such as your IP address or your location; it only contains the time and date of the login.
+
+Why we monitor timestamps
+We retain this limited information to protect user accounts from password brute force attacks. This is necessary to identify password guessing attempts targeting specific user accounts and to take action to protect those accounts.
+
+Data security
+We take data security very seriously at ProtonVPN. Only our employees have physical or other access to our infrastructure and Secure Core servers. Data is usually stored in encrypted format on our servers. Offline backups may be stored periodically, but these are also secured.
+
+Disclosure of your information
+We will only disclose the limited user data we possess when requested by a Swiss court for the purposes of the prevention, investigation, detection or prosecution of criminal offences or the execution of criminal penalties, including the safeguarding against and the prevention of threats to public security.
+
+Court orders must be approved by either the Cantonal Courts of Geneva or the Swiss Federal Supreme Court. Under Swiss law, it is obligatory to notify the target of a data request, although such notification may come from the authorities and not from the Company.
+
+Changes to our Privacy Policy
+ProtonVPN reserves the right to periodically review and change this policy, and we will notify users who have enabled the notification preference about changes to our Privacy Policy. Continued use of the Service will be deemed as acceptance of such changes.
+
+Applicable law
+This Agreement shall be governed in all respects by the substantive laws of Switzerland. Any controversy, claim, or dispute arising out of or relating to the Privacy Policy shall be subject to the jurisdiction of the competent courts of the Canton of Geneva, the jurisdiction of the Swiss Federal Court being expressly reserved.
+
